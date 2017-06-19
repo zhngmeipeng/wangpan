@@ -1,0 +1,702 @@
+body {
+	font-size: 12px;
+    font-family: "Microsoft YaHei", "微软雅黑", "Arial", "黑体", "宋体", sans-serif;
+    background: #fff;
+    overflow: hidden;
+}
+body,ul {
+	margin: 0;
+	padding: 0;
+}
+ul li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+header {
+	height: 70px;
+	width: 100%;
+}
+.logo {
+	padding: 18px 0 0 28px;
+	float: left;
+}
+.icon {
+	display: inline-block;
+	background: url(../img/sprits.png) no-repeat;
+}
+ .logo span {
+ 	width: 131px;
+ 	height: 35px;
+ 	background-position: -254px -76px;
+ }
+.userinfo {
+	float: right;
+	margin-right: 26px;
+	padding-top: 10px;
+	position: relative;
+}
+.userheader {
+	width: 100%;
+	border: 1px solid #fff;
+	padding: 5px 0;
+	background: #fff;
+	position: relative;
+	z-index: 10px;
+}
+.userinfo .userheader a{
+	display: block;
+	overflow: hidden;
+	padding: 0 16px;
+}
+.userinfo .userheader .headerPic {
+	overflow: hidden;
+	border-radius: 50%;
+	background: #ccc;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	float: left;
+}
+.userinfo .userheader i {
+	width: 10px;
+	height: 10px;
+	float: right;
+	background-position: -355px -8px;
+	margin-top: 16px;
+}
+
+.userinfo .infosTool {
+	width: 168px;
+	position: absolute;
+	border: 1px solid #c2c3ca;
+	z-index: 9;
+	right: 0;
+	box-shadow: 0 1px 2px #ccc;
+	top: 60px;
+	background: #fff;
+	display: none;
+}
+.infosTool .ui-header {
+	padding: 0 15px;
+}
+
+.infosTool .ui-header .nick_name {
+	display: block;
+	color: #333;
+	font-size: 14px;
+	padding-top: 5px;
+}
+
+.infosTool .info-menu {
+	margin-top: 10px;
+	padding: 0 1px 1px 1px;
+}
+.infosTool .info-menu a {
+	display: block;
+	color: #666;
+	padding: 7px 3px 7px 15px;
+	transition: all 0.3s ease-out;
+	border-top: 1px solid #c2c3ca;
+}
+.toolMenu {
+	height: 36px;
+	padding: 11px 20px;
+	font-size: 0;
+	background: #ecf0f6;
+	border: 1px solid #d0d9de;
+	border-left: 0;
+	border-right: 0;
+}
+
+.toolMenu a{
+	display: inline-block;
+	font-size: 14px;
+	color: #66757f;
+	height: 36px;
+	line-height: 36px;
+	margin-right: 10px;
+	border: 1px solid #d0d9de;
+	border-radius: 3px;
+	padding: 0 20px;
+	background: #fff;
+	vertical-align: top;
+}
+
+.toolMenu a i{
+	display: inline-block;
+	position: relative;
+	top: 2px;
+}
+
+.toolMenu a.download i {
+    width: 16px;
+    height: 14px;
+    background-position: -1px -29px;
+}
+
+.toolMenu a.share i {
+    width: 16px;
+    height: 16px;
+    background-position: -37px -28px;
+}
+.toolMenu a.newfolder i {
+    width: 16px;
+    height: 16px;
+    background-position: -181px 0px;
+}
+
+.toolMenu a.rename i {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -29px;
+}
+
+.toolMenu a.cancle i {
+    width: 16px;
+    /* height: 16px; */
+    background-position: -145px -29px;
+}
+
+.toolMenu a.move i {
+    width: 16px;
+    height: 16px;
+    background-position: -73px -28px;
+}
+.toolMenu a.refresh i {
+    width: 16px;
+    height: 16px;
+    background-position: -218px -1px;
+}
+.view {
+	position: relative;
+	float: right;
+}
+.view .treeMenu {
+	padding: 0 10px;
+	transition: background-color 0.3s ;
+}
+.toolMenu .view .treeMenu i {
+    background-position: -254px -1px;
+    width: 16px;
+    height: 16px;
+}
+.toolMenu .view .viewdetails {
+    float: right;
+}
+
+.toolMenu .view .sortMode {
+    background: #fff;
+    padding: 0 10px;
+    border-radius: 3px 3px 0 0;
+    margin-right: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.toolMenu .view .sortMode .icon1 {
+    width: 16px;
+    height: 16px;
+    background-position: -27px -126px;
+}
+
+.toolMenu .view .sortMode .icon2 {
+    width: 10px;
+    height: 10px;
+    background-position: -355px -8px;
+}
+
+.toolMenu .view .sortMd_lists {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    width: 130px;
+    border: 1px solid #55addc;
+    background: #fff;
+    z-index: 1;
+    border-radius: 3px 0 3px 3px;
+    display: none;
+}
+
+.toolMenu .view .sortMd_lists li a {
+	margin: 0;
+    border: 0;
+    display: block;
+    border-radius: 0;
+    padding: 0 10px;
+}
+
+.toolMenu .view .sortMd_lists li a i {
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+}
+.toolMenu .view .sortMd_lists li a.sort_timer i {
+    background-position: -27px -57px;
+}
+
+.toolMenu .view .sortMd_lists li a.sort_letter i {
+    background-position: -27px -90px;
+}
+.toolMenu .view .sortMd_lists li a.show_thumbnail i {
+    background-position: -27px -126px;
+}
+.main {
+	height: 483px;
+}
+
+.left {
+	width: 240px;
+	border-right: 1px solid #e1e8ed;
+	font-size: 14px;
+}
+.left ,.right{
+	float: left;
+	height: 100%;
+}
+
+.treeMenu li .title {
+	height: 30px;
+	line-height: 30px;
+}
+
+.treeMenu li .title .icon1, .treeMenu li .title em {
+    width: 10px;
+    height: 10px;
+    margin-right: 4px;
+    display: inline-block;
+}
+.treeMenu li .title .icon2 {
+    width: 16px;
+    height: 16px;
+    background-position: -21px -151px;
+    position: relative;
+    top: 2px;
+}
+.treeMenu li .title.control .icon1 {
+    background-position: -355px -25px;
+}
+.treeMenu li .title.control .icon2, .treeMenu li .title.control em {
+    background-position: -1px -151px;
+}
+
+.treeMenu li .title.control-none .icon1 {
+    background-position: 10000px 10000px;
+}
+.right {
+    background: #f5f8fa;
+}
+
+.right .nav {
+	width: 100%;
+	height: 48px;
+	background: #fff;
+	border-bottom: 1px solid #ecf0f6;
+}
+.right .navbox {
+	padding: 15px;
+}
+
+.selectFiles {
+	border: 1px solid #d0d9de;
+	float: left;
+	width: 15px;
+	height: 15px;
+}
+
+.right .navbox ul {
+	float: left;
+	margin-left: 10px;
+	margin-top: -7px;
+}
+
+.right .navbox ul li a, .right .navbox ul li .currPath {
+    font-size: 14px;
+    color: #2a3133;
+    padding: 0 15px 15px 15px;
+}
+.right .navbox ul li .currPath {
+    line-height: 29px;
+}
+.right .navbox ul li a.active, .right .navbox ul li .currPath.active, .right .navbox ul li a:hover, .right .navbox ul li .currPath:hover {
+    color: #55addc;
+    border-bottom: 2px solid #55addc;
+}
+
+.view-of-icon,.fileListView {
+	width: 100;
+	height: 100%;
+	position: relative;
+}
+.view-of-icon .vi-panel, .fileListView .vi-panel {
+    height: 100%;
+    overflow: hidden;
+}
+
+.fileListView {
+	width: 100%;
+}
+.fileListView .files {
+	height: 40px;
+	line-height: 40px;
+	background: #f5f8fa;
+	border: 0;
+	border-bottom: 1px solid #e1e8ed;
+	padding: 0 15px;
+	font-size: 14px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.fileListView .files .titles {
+	width: 40%;
+	height: 40px;
+	overflow: hidden;
+	text-align: left;
+	font-size: 0;
+	float: left;
+}
+
+
+.files .selectBox {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d0d9de;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+}
+
+.files.active .selectBox {
+    display: block;
+    background-image: url(../img/sprits.png);
+    background-repeat: no-repeat;
+    background-color: #55addc;
+    border-color: #55addc;
+    background-position: -384px -24px;
+}
+
+.files.reNameFile .filename {
+  display: none;
+}
+.files.reNameFile input.txt {
+  width: 100px;
+  padding: 0 10px;
+  font-family: "å¾®è½¯é›…é»‘";
+  font-size: 14px;
+  color: #666;
+  border: 1px solid #ccc;
+  height: 22px;
+  line-height: 22px;
+  display: inline-block;
+  text-align: center;
+}
+
+.fileListView .files .titles, .fileListView .files .tools {
+    float: left;
+}
+
+.fileListView .files .selectBox {
+    display: block;
+    top: 12px;
+}
+
+.fileListView .files .titles .txt {
+    position: relative;
+    top: 5px;
+    margin-left: 10px;
+}
+
+.fileListView .files .titles .folderIcon {
+    margin: 0;
+    float: left;
+    margin-left: 25px;
+    margin-top: 9px;
+    width: 24px;
+    height: 21px;
+    background-position: -217px -243px;
+}
+
+.fileListView .files .titles .filename {
+    line-height: 40px;
+    font-size: 14px;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+}
+
+.fileListView .files .titles .txt {
+    position: relative;
+    top: 5px;
+    margin-left: 10px;
+}
+
+.files input.txt {
+    display: none;
+}
+
+.fileListView .files .tools {
+    width: 30%;
+    height: 40px;
+    text-align: left;
+    float: left;
+}
+.fileListView .files .tools .icon.download {
+    background-position: -1px -29px;
+}
+.fileListView .files .tools .icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 20px 0 0;
+    float: none;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+.fileListView .files .tools .icon.share {
+    background-position: -37px -28px;
+}
+
+.fileListView .files .tools .icon.move {
+    background-position: -73px -28px;
+}
+.fileListView .files .tools .icon.cancle {
+    background-position: -145px -29px;
+}
+
+.fileListView .files .timer {
+    width: 20%;
+    float: right;
+    text-align: center;
+}
+
+.tm_warning {
+    background: #f3a960;
+}
+
+.tm_tips {
+	font-size: 14px;
+	position: fixed;
+	padding: 0 20px;
+	height: 35px;
+	line-height: 35px;
+	font-family: "microsoft yahei";
+	font-weight: bold;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+	transition: all 0.5s ;
+}
+
+.tm_warning .icon {
+    background-position: -324px -242px;
+}
+.tm_success .icon, .tm_warning .icon, .tm_onnectionErr .icon {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-top: 6px;
+    margin-right: 5px;
+}
+.tm-overlay {
+	width: 100%;
+	height: 100%;
+	background: #141414;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	opacity: 0.38;
+	display: none;
+	transition: all 2s;
+}
+.shareS {
+	width: 320px;
+	height: 246px;
+	border: 1px solid #d0d3d6;
+	background: #fff;
+	position: absolute;
+	z-index: 111;
+	color: #666;
+	border-radius: 3px;
+	overflow: hidden;
+	transition: all 2s;
+	bottom: -300px;
+}
+.shareS .shareTle {
+	height: 45px;
+	line-height: 45px;
+	padding-left: 20px;
+	border-bottom: 1px solid #ccc;
+	font-size: 16px;
+	cursor: move;
+}
+.shareS .shareTle .close {
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../img/sprits.png) no-repeat;
+	background-position: -325px -28px;
+	position: absolute;
+	right: 15px;
+	top: 17px;
+	cursor: pointer;
+}
+
+.shareS .bdsharebuttonbox a.bds_qzone {
+    background-image: url(../img/qzone.png);
+}
+.shareS .bdsharebuttonbox a.bds_weixin {
+    background-image: url(../img/weixin.png);
+}
+.shareS .bdsharebuttonbox a.bds_sqq {
+    background-image: url(../img/qq.png);
+}
+.shareS .bdsharebuttonbox a.bds_mail {
+    background-image: url(../img/mail.png);
+}
+.bdshare-button-style0-24 a, .bdshare-button-style0-24 .bds_more{
+	background-image: url(../img/icons_0_24.png?v=dcaa92d6.png);
+}
+    
+.shareS .bdsharebuttonbox a {
+	display: block;
+	padding: 0 30px 0 60px;
+	line-height: 30px;
+	font-size: 16px;
+	color: #666;
+	clear: both;
+	border-top: 1px dashed #f5f7f9;
+	background-position: 25px 3px;
+	background-repeat: no-repeat;
+}
+
+.shareS .cancles {
+	 border-top: 1px solid #d0d3d6;
+	 text-align: right;
+	 padding: 0 10px;
+	 height: 30px;
+	 line-height: 30px;
+}
+
+.shareS .cancles a {
+	width: 58px;
+	height: 28px;
+	display: inline-block;
+	color: #fff;
+	background: #2698f0;
+	border-radius: 2px;
+	font-size: 14px;
+	line-height: 28px;
+	text-align: center;
+	margin-top: 8px;
+	cursor: pointer;
+}
+
+.bdshare_popup_box {
+	width: 226px;
+	top: 0;
+	left: 524px;
+	position: absolute;
+	z-index: 1000;
+	text-align: left;
+	background: #f6f6f6;
+	border: 1px solid #e9e9e9;
+	display: none;
+}
+ .bdshare_popup_box .bdshare_popup_top {
+ 	width: 100%;
+ 	padding: 0 5px;
+ 	height: 28px;
+ 	line-height: 28px;
+ 	color: #626262;
+ 	font-size: 14px;
+ }
+ .bdshare_popup_list {
+ 	margin: 0;
+ 	padding: 5px 0;
+ 	background: #fff;
+ 	overflow-x: 0;
+ 	overflow: hidden;
+ }
+.bdshare_popup_list li{
+	float: left;
+	width: 100px;
+	padding: 2px;
+	margin-left: 6px;
+	height: 28px;
+}
+
+.bdshare_dialog_list a, .bdshare_popup_list a, .bdshare_popup_bottom a {
+    color: #565656;
+    font: 12px '宋体';
+    display: block;
+    background-image: url(../img/icons_0_16.png?v=91362611.png);
+    background-repeat: no-repeat;
+    padding: 5px 0 5px 28px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    line-height: 18px;
+}
+
+.popup_mshare {
+    background-position: 4px -2439px;
+}
+.popup_qzone {
+    background-position: 4px -47px;
+}
+.popup_tsina {
+    background-position: 4px -99px;
+}
+.popup_tqq {
+    background-position: 4px -255px;
+}
+.popup_bdxc {
+    background-position: 4px -2543px;
+}
+.popup_kaixin001 {
+    background-position: 4px -307px;
+}
+
+.popup_tqf {
+    background-position: 4px -359px;
+}
+.popup_tieba {
+    background-position: 4px -723px;
+}
+.popup_douban {
+    background-position: 4px -463px;
+}
+.popup_bdhome {
+    background-position: 4px -151px;
+}
+.popup_sqq {
+    background-position: 4px -2647px;
+}
+.popup_thx {
+    background-position: 4px -2491px;
+}
+.popup_ibaidu {
+    background-position: 4px -3115px;
+}
+.bdshare_popup_bottom {
+    clear: both;
+    height: 30px;
+    font-size: 12px;
+    text-align: right;
+    padding: 0 10px;
+}
+.bdshare_popup_bottom a {
+    color: #999;
+    text-decoration: none;
+    border: 0;
+    float: right;
+}
+
+.popup_more {
+    background-position: 4px 5px;
+}

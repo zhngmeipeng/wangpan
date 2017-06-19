@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/myCss.css">
+		<script src="js/angular.min.js"></script>
+	</head>
+	<script>
+		var ml = angular.module('myApp',[]) ;
+		ml.directive('myTd',function(){
+			return {
+				restrict:'E',
+				replace:'true',
+				scope:{
+					myData:'=myData'
+				},
+				templateUrl:'td.html'
+			}
+		})
+		
+		ml.directive('myTitle',function(){
+			return {
+				restrict:'E',
+				replace:'true',
+				scope:{
+					myAttr:'=myAttr'
+				},
+				templateUrl:'title.html'
+			}
+		})
+		
+		ml.controller('myCon',['$scope',function($scope){
+			$scope.infoMenu = [
+				{text:"开通会员",cursor:false},
+				{text:"留言板",cursor:true},
+				{text:"退出",cursor:false}
+			] ;
+			//"download","share","newfolder","rename","cancle","move","refresh"
+			$scope.toolMemu = [
+				{className:"download",text:"下载"},
+				{className:"share",text:"分享"},
+				{className:"newfolder",text:"新建文件夹"},
+				{className:"rename",text:"重命名"},
+				{className:"cancel","text":"删除"},
+				{className:"move",text:"移动到"},
+				{className:"refresh",text:"刷新"}
+			]
+			$scope.sortMdLists = [
+				{className:"sort_timer",text:"按时间排序"},
+				{className:"sort_letter",text:"按字母排序"},
+				{className:"show_thumbnail",text:"显示缩略图"}
+			];
+			
+			$scope.tests = [
+				{text:'李目录二',date:'2016-09-05'}
+			]
+			
+		}]);
+	</script>
+	<body ng-controller="myCon">
+		<header>
+			<a class="logo">
+				<span class="icon"></span>
+			</a>
+			<div class="userinfo">
+				<div class="userheader">
+					<a href="javascript:void(0)">
+						<span class="headerPic">
+							<img src="img/pic.jpg" width="40" height="40" />
+						</span>
+						<i class="icon"></i>
+					</a>
+				</div>
+				<div class="infosTool">
+					<div class="ui-header">
+						<span class="nick_name"> 饭</span>
+					</div>
+					<ul class="info-menu">
+						<li ng-repeat ="data in infoMenu">
+							<a href="javascript:void(0)" ng-style="{cursor: data.cursor?'':'not-allowed'}" ng-bind="data.text"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<nav class="toolMenu">
+			<a href="javascript:void(0)" ng-repeat="data in toolMemu" ng-class="data.className" id="{{data.className}}">
+				<i class="icon"></i>
+				<span ng-bind="data.text"></span>
+			</a>
+			
+			<div class="view">
+				<a href="javascript:void(0)" class="treeMenu">
+					<i class="icon"></i>
+				</a>
+				<div class="viewdetails">
+					<a href="javascript:void(0)" class="sortMode">
+						<i class="icon icon1"></i>
+						<i class="icon icon2"></i>
+					</a>
+					<div class="sortMd_lists">
+						<ul>
+							<li ng-repeat= "data in sortMdLists">
+								<a ng-class="data.className" href="javasript:void(0)">
+									<i class="icon"></i>
+									<span ng-bind="data.text"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="main">
+			<div class="left treeMenu">
+				<div id="treeMenu">
+					<ul>
+						<li>
+							<my-title my-attr = "{text:'全部文件',pad:'14',con:'control'}"></my-title>
+							<ul>
+								<li>
+									<my-title my-attr = "{text:'赵目录一',pad:'28',con:'control'}"></my-title>
+									<ul>
+										<li>
+											<my-title my-attr = "{text:'钱目录一',pad:'42',con:'control'}"></my-title>
+											<ul>
+												<li>
+													<my-title my-attr = "{text:'孙目录一',pad:'56',con:'control-none'}"></my-title>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<my-title my-attr = "{text:'李目录二',pad:'28',con:'control'}"></my-title>
+									<ul>
+										<li>
+											<my-title my-attr = "{text:'周目录一',pad:'42',con:'control-none'}"></my-title>
+											<ul>
+												<li>
+													<my-title my-attr = "{text:'郑目录一',pad:'56',con:'control-none'}"></my-title>
+													
+												</li>
+											</ul>
+										</li>
+										<li>
+											<my-title my-attr = "{text:'周目录一',pad:'42',con:'control-none'}"></my-title>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<my-title my-attr = "{text:'王目录二',pad:'28',con:'control-none'}"></my-title>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="right" style="width: 1125px">
+				<nav class="nav">
+					<div class="navbox">
+						<a href="javascript:void(0)" class="selectFiles"></a>
+						<ul>
+							<li>
+								<span class="currPath active">全部文件</span>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<div class="view-of-icon" id="view-of-icon">
+					<div class="vi-panel">
+						<div class="fileListView details" id="filesView">
+							<my-Td ng-repeat="data in tests" my-data = "data"></my-Td>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tm-overlay" id="overlayout"></div>
+		<div id="tm_tips" class="tm_tips tm_warning" style="">
+			<i class="icon"></i>
+			<span>暂无下载链接，请联系管理员！</span>
+		</div>
+		<div class="shareS animated bounceInUp" id="shareS">
+			<div class="shareTle">
+				请选择分享的位置
+				<a class="close"></a>
+			</div>
+			<div class="bdsharebuttonbox bdshare-button-style0-24" data-tag = "share_1">
+				<a class="bds_qzone" data-cmd="qzone" href="javascript:void(0)" title="分享到朋友圈">朋友圈</a>
+				<a class="bds_weixin" data-cmd="weixin" href="javascript:void(0)" title="分享到微信">微信</a>
+				<a class="bds_sqq" data-cmd="sqq" href="javascript:void(0)" title="分享给QQ好友">QQ好友</a>
+				<a class="bds_mail" data-cmd="mail" href="javascript:void(0)" title="用电子邮件分享">电子邮件</a>
+				<a class="bds_more" href="javascript:void(0)" target="_blank" data-cmd="more">更多</a>
+			</div>
+			<div class="cancles">
+				<a class="cancle">取消</a>
+			</div>
+		</div>
+		<div class="bdshare_popup_box">
+			<div class="bdshare_popup_top">
+				分享到
+			</div>
+			<ul class="bdshare_popup_list">
+				<li><a href="#" onclick="return false;" class="popup_mshare" data-cmd="mshare">一键分享</a></li>
+				<li><a href="#" onclick="return false;" class="popup_qzone" data-cmd="qzone">QQ空间</a></li>
+				<li><a href="#" onclick="return false;" class="popup_tsina" data-cmd="tsina">新浪微博</a></li>
+				<li><a href="#" onclick="return false;" class="popup_bdysc" data-cmd="bdysc">百度云收藏</a></li>
+				<li><a href="#" onclick="return false;" class="popup_weixin" data-cmd="weixin">微信</a></li>
+				<li><a href="#" onclick="return false;" class="popup_renren" data-cmd="renren">人人网</a></li>
+				<li><a href="#" onclick="return false;" class="popup_tqq" data-cmd="tqq">腾讯微博</a></li>
+				<li><a href="#" onclick="return false;" class="popup_bdxc" data-cmd="bdxc">百度相册</a></li>
+				<li><a href="#" onclick="return false;" class="popup_kaixin001" data-cmd="kaixin001">开心网</a></li>
+				<li><a href="#" onclick="return false;" class="popup_tqf" data-cmd="tqf">腾讯朋友</a></li>
+				<li><a href="#" onclick="return false;" class="popup_tieba" data-cmd="tieba">百度贴吧</a>
+				</li><li><a href="#" onclick="return false;" class="popup_douban" data-cmd="douban">豆瓣网</a></li>
+				<li><a href="#" onclick="return false;" class="popup_bdhome" data-cmd="bdhome">百度新首页</a></li>
+				<li><a href="#" onclick="return false;" class="popup_sqq" data-cmd="sqq">QQ好友</a></li>
+				<li><a href="#" onclick="return false;" class="popup_thx" data-cmd="thx">和讯微博</a></li>
+				<li><a href="#" onclick="return false;" class="popup_ibaidu" data-cmd="ibaidu">百度中心</a></li>
+			</ul>
+			<div class="bdshare_popup_bottom">
+				<a href="#" onclick="return false;" class="popup_more" data-cmd="more" target="_blank;">更多...</a>
+			</div>
+		</div>
+	</body>
+	<script src="js/myJs.js"></script>
+</html>

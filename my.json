@@ -1,0 +1,43 @@
+{
+	"text":"全部文件",
+	"isLeaf":false,
+	"children":[
+		{"text":"赵目录一",
+		"isLeaf":false,
+		"childre":[
+			{"text":"钱目录一",
+			"isLeaf":false,
+			"children":[
+				{"text":"孙目录一",
+				"isLeaf":true
+				}
+			]
+			}
+		]
+		},
+		{
+			"text":	"李目录二",
+			"isLeaf":false,
+			"childre":[
+				{
+					"text":"周目录2",
+					"isLeaf":false,
+					"childre":[
+						{
+							"text":"郑目录二",
+							"isLeaf":true
+						}
+					]
+				},
+				{
+					"text":"吴目录二",
+					"isLeaf":true
+				}
+			]
+		},
+		{
+			"text":"王目录三",
+			"isLeaf":true
+		}
+	]
+}
